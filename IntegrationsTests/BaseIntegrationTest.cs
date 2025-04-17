@@ -1,3 +1,5 @@
+using FluentAssertions;
+
 namespace IntegrationsTests
 {
     public class BaseIntegrationTest
