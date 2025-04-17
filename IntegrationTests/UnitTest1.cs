@@ -1,8 +1,8 @@
 using FluentAssertions;
 
-namespace IntegrationsTests
+namespace IntegrationTests
 {
-    public class BaseIntegrationTest
+    public class BaseUnitTest
     {
         [Fact]
         public void True_Should_Be_True()
