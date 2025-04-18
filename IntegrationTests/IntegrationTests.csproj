@@ -15,6 +15,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="FluentAssertions" Version="[7.0.0]" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.15" />
         <!-- Important: Do not upgrade to FluentAssertions version 8.x.x due to breaking license changes.
 			Refer to the release notes: https://github.com/fluentassertions/fluentassertions/releases/tag/8.0.0 -->
         <PackageReference Include="Microsoft.CodeCoverage" Version="17.12.0" />

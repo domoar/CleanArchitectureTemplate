@@ -2,17 +2,20 @@
 
 namespace IntegrationTests;
 
-public class BaseIntegrationTest {
+public class BaseIntegrationTest : IClassFixture<CleanArchitectureApiFactory> {
+
+  private readonly HttpClient _client;
+
   [Fact]
   public void True_Should_Be_True() {
     // Arrange
-    Boolean booleanValue;
+    Boolean boolValue;
 
     // Act
-    booleanValue = true;
+    boolValue = true;
 
     // Assert
-    booleanValue.Should().BeTrue("Expected the value to be true.");
+    boolValue.Should().BeTrue("Expected the value to be true.");
   }
 
   [Theory]
@@ -25,6 +28,22 @@ public class BaseIntegrationTest {
     boolValue = inlineData;
 
     // Assert
-    Assert.True(boolValue, "Expected the value to be true.");
+    boolValue.Should().BeTrue("Expected the value to be true.");
+  }
+
+  [Fact]
+  public async Task UseFactory() {
+    // Arrange
+    string url = "";
+
+    // Act 
+    var response = await _client.GetAsync(url);
+
+    // Assert
+    response.EnsureSuccessStatusCode();
+  }
+
+  public BaseIntegrationTest(CleanArchitectureApiFactory apiFactory) {
+    _client = apiFactory.CreateClient();
   }
 }

@@ -6,13 +6,13 @@ public class BaseUnitTest {
   [Fact]
   public void True_Should_Be_True() {
     // Arrange
-    Boolean booleanValue;
+    Boolean boolValue;
 
     // Act
-    booleanValue = true;
+    boolValue = true;
 
     // Assert
-    booleanValue.Should().BeTrue("Expected the value to be true.");
+    boolValue.Should().BeTrue("Expected the value to be true.");
   }
 
   [Theory]
@@ -25,6 +25,6 @@ public class BaseUnitTest {
     boolValue = inlineData;
 
     // Assert
-    Assert.True(boolValue, "Expected the value to be true.");
+    boolValue.Should().BeTrue("Expected the value to be true.");
   }
 }
