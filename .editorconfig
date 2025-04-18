@@ -1,9 +1,18 @@
-root = true
+﻿root = true
 
-# All files
-[*]
+[*.cs]
 indent_style = space
+tab_width = 4
+indent_size = 2
+max_line_length = 120
+dotnet_diagnostic.IDE0059.severity = warning
+end_of_line = lf
+charset = utf-8
+csharp_style_braces_on_same_line_as_declaration = true:suggestion
+csharp_style_braces_on_same_line_as_control_statements = true:suggestion
+csharp_new_line_before_open_brace = none:suggestion
+csharp_new_line_after_open_brace = false:suggestion
+csharp_new_line_before_close_brace = false:suggestion
+insert_final_newline = true
 
-[.cs]
-
-[.yaml]
+csharp_style_namespace_declarations = file_scoped:warning

@@ -1,14 +1,15 @@
 using FluentAssertions;
 
-namespace UnitTests;
+namespace UnitTests.Application;
 
-  public class BaseUnitTest
+[Trait("category", "application")]
+public class BaseUnitTest
   {
       [Fact]
       public void True_Should_Be_True()
       {
           // Arrange
-          Boolean booleanValue;
+          bool booleanValue;
 
           // Act
           booleanValue = true;
@@ -22,7 +23,7 @@ namespace UnitTests;
       public void True_Should_Be_True_ForData(bool inlineData)
       {
           // Arrange
-          Boolean boolValue;
+          bool boolValue;
 
           // Act 
           boolValue = inlineData;
