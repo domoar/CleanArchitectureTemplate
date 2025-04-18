@@ -1,4 +1,4 @@
-using Api.middleware;
+﻿using Api.middleware;
 using Microsoft.AspNetCore.Http.Features;
 
 namespace Api.DependencyInjection;

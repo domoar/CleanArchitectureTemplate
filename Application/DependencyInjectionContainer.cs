@@ -2,10 +2,8 @@
 
 namespace Application;
 
-  public static class DependencyInjectionContainer
-  {
-      public static IServiceCollection AddApplication(this IServiceCollection services)
-      {
-          return services;
-      }
+public static class DependencyInjectionContainer {
+  public static IServiceCollection AddApplication(this IServiceCollection services) {
+    return services;
   }
+}

@@ -2,10 +2,8 @@
 
 namespace Infrastructure;
 
-  public static class DependencyInjectionContainer
-  {
-      public static IServiceCollection AddInfrastructure(this IServiceCollection services)
-      {
-          return services;
-      }
+public static class DependencyInjectionContainer {
+  public static IServiceCollection AddInfrastructure(this IServiceCollection services) {
+    return services;
   }
+}

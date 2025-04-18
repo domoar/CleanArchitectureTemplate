@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace Api.middleware;
@@ -11,7 +11,7 @@ public class GlobalExceptionHandler(RequestDelegate next, ILogger<GlobalExceptio
     try { await _next(httpContext); }
     catch (Exception ex) {
 
-      if(ex is ProblemException) {
+      if (ex is ProblemException) {
         return;
       }
 

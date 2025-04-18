@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.ResponseCompression;
+﻿using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
 
 namespace Api.DependencyInjection;
@@ -8,8 +8,8 @@ public static class ResponseCompressionServiceCollectionExtensions {
     services.AddResponseCompression(options => {
       options.Providers.Add<GzipCompressionProvider>();
       options.EnableForHttps = true;
-      options.MimeTypes = [ "application/json" ];
-      });
+      options.MimeTypes = ["application/json"];
+    });
 
     services.Configure<GzipCompressionProviderOptions>(options => {
       options.Level = CompressionLevel.Fastest;

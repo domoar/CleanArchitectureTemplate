@@ -2,10 +2,8 @@
 
 namespace Domain;
 
-  public static class DependencyInjectionContainer
-  {
-      public static IServiceCollection AddDomain(this IServiceCollection services)
-      {
-          return services;
-      }
+public static class DependencyInjectionContainer {
+  public static IServiceCollection AddDomain(this IServiceCollection services) {
+    return services;
   }
+}
