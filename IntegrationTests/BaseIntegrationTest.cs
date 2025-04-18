@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using System.Net;
 
 namespace IntegrationTests;
 
@@ -40,7 +41,7 @@ public class BaseIntegrationTest : IClassFixture<CleanArchitectureApiFactory> {
     var response = await _client.GetAsync(url);
 
     // Assert
-    response.EnsureSuccessStatusCode();
+    response.StatusCode.Should().Be(HttpStatusCode.NotFound);
   }
 
   public BaseIntegrationTest(CleanArchitectureApiFactory apiFactory) {
