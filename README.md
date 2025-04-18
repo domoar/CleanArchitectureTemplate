@@ -2,6 +2,14 @@
 
 [![Build and Test .NET Project](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yaml/badge.svg)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yaml)
 
+## Api
+
+To debug or run the api locally use 
+
+```bash
+dotnet watch run
+```
+
 ## Testing
 
 All Tests can be run by chaning the working directory of the unit or integration tests and then using the command:

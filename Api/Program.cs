@@ -2,6 +2,8 @@ using Application;
 using Infrastructure;
 using Domain;
 using Api.DependencyInjection;
+using Api.middleware;
+using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +12,7 @@ builder.Logging.ClearProviders();
 builder.Services.AddDefaultProblemDetails();
 builder.Services.AddDefaultApiVersioning();
 builder.Services.AddDefaultResponseCompression();
-
+builder.Services.AddDefaultSwaggerGeneration();
 
 builder.Services.AddDomain();
 builder.Services.AddInfrastructure();
@@ -20,14 +22,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
+app.UseMiddleware<GlobalExceptionHandler>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseResponseCompression();
 
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction()) {
   app.UseSwagger();
@@ -37,6 +45,8 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction()) {
     options.ConfigObject.AdditionalItems["syntaxHighlight"] = false;
   });
 }
+
+
 
 
 await app.RunAsync();
