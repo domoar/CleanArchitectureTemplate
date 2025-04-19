@@ -32,7 +32,7 @@ public sealed partial class Banner : IDisposable {
 
   private string TEXT =>
    $"""
-(c) SEW EURODRIVE GmbH, Manuel Dausmann (DEEUSEW/DEDAUMAN - Innovation Services-DE [ISVT])
+(c) CleanArchitectureTemplate, domoar (Manuel Dausmann)
 API VERSION       {"v1"}
 ENVIRONMENT       {"ENV"}
 Dotnet Version    {DOTNETVERSION}
