@@ -8,7 +8,8 @@ on:
 
 jobs:
   call-core-build:
-    uses: ./.github/workflows/build-core.yml
+    uses: domoar/CleanArchitectureTemplate/.github/workflows/build-core.yml@main
+
 
   run-tests:
     name: Run Unit & Integration Tests

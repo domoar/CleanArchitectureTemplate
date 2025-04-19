@@ -9,7 +9,7 @@ on:
 
 jobs:
   call-core-build:
-    uses: ./.github/workflows/build-core.yml
+    uses: domoar/CleanArchitectureTemplate/.github/workflows/build-core.yml@main
 
   generate-uml:
     name: Generate UML Diagrams

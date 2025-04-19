@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-core-build:
-    uses: ./.github/workflows/build-core.yml
+    uses: domoar/CleanArchitectureTemplate/.github/workflows/build-core.yml@main
 
   format-check:
     name: Verify Formatting
