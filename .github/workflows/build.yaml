@@ -47,7 +47,7 @@ jobs:
       - name: Generate UML for Controllers, Services & Repositories
         run: |
           SRC_DIR="."
-          OUT_DIR="´__extras__/docu/plantuml"
+          OUT_DIR="__extras__/docu/plantuml"
           mkdir -p "$OUT_DIR"
 
           find "$SRC_DIR" -type f \( \
