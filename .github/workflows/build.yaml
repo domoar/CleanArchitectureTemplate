@@ -46,8 +46,8 @@ jobs:
 
       - name: Generate UML for Controllers, Services & Repositories
         run: |
-          SRC_DIR="CleanArchitectureTemplate"
-          OUT_DIR="API/extras/docu/plantuml"
+          SRC_DIR="."
+          OUT_DIR="´__extras__/docu/plantuml"
           mkdir -p "$OUT_DIR"
 
           find "$SRC_DIR" -type f \( \
