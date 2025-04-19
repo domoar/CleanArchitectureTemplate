@@ -1,5 +1,8 @@
 ﻿name: Build, Test & Generate UML
 
+permissions:
+  contents: write
+
 on:
   push:
     branches: [ main, develop ]
