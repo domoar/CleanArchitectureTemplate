@@ -1,4 +1,4 @@
-name: Build and Test .NET Project
+﻿name: Build and Test .NET Project
 
 on:
   push:
@@ -23,6 +23,9 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore CleanArchitectureTemplate.sln
 
+      - name: Restore .NET tools
+        run: dotnet tool restore
+
       - name: Apply code formatting (.editorconfig)
         run: dotnet format CleanArchitectureTemplate.sln
 
@@ -38,6 +41,34 @@ jobs:
       - name: Run Integration Tests
         run: dotnet test IntegrationTests/IntegrationTests.csproj --no-build --configuration Release --logger "trx;LogFileName=integration.trx"
 
+      - name: Add dotnet tools to PATH
+        run: echo "${{ runner.tool_cache }}/dotnet/tools" >> $GITHUB_PATH
+
+      - name: Generate UML for Controllers, Services & Repositories
+        run: |
+          SRC_DIR="CleanArchitectureTemplate"
+          OUT_DIR="API/extras/docu/plantuml"
+          mkdir -p "$OUT_DIR"
+
+          find "$SRC_DIR" -type f \( \
+              -name '*Controller.cs' -o \
+              -name '*Service.cs' -o \
+              -name '*Repository.cs' -o \
+            ) | while read -r csfile; do
+            base=$(basename "$csfile" .cs)
+            puml_file="$OUT_DIR/${base}.puml"
+            echo "Generating diagram for $csfile → $puml_file"
+            puml-gen "$csfile" "$puml_file"
+          done
+
+      - name: Commit generated diagrams
+        if: github.ref == 'refs/heads/main'
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: update PlantUML diagrams"
+          file_pattern: 'RWAnalyzer/extras/docu/plantuml/*.puml'
+          author_name: github-actions[bot]
+          author_email: github-actions[bot]@users.noreply.github.com
       - name: Upload Test Results
         uses: actions/upload-artifact@v4
         with:
