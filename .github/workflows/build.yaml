@@ -52,9 +52,9 @@ jobs:
 
           find "$SRC_DIR" -type f \( \
               -name '*Controller.cs' -o \
-              -name '*Service.cs' -o \
-              -name '*Repository.cs' -o \
-            ) | while read -r csfile; do
+              -name '*Service.cs'    -o \
+              -name '*Repository.cs' \
+            \) | while read -r csfile; do
             base=$(basename "$csfile" .cs)
             puml_file="$OUT_DIR/${base}.puml"
             echo "Generating diagram for $csfile → $puml_file"
