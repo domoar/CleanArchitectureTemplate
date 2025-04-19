@@ -61,17 +61,10 @@ public class HealthCheckResilienceService : IHostedService {
     }
 
     if (!isHealthy) {
-      _logger?.LogError(
-        "-------------------------------------------------------------------------------"
-      );
-      _logger?.LogError(
-        "Health check failed after {MaxRetries:D2} attempts. Application starting as not operational!",
-        MAX_RETRIES
-      );
-      _logger?.LogError(
-        "-------------------------------------------------------------------------------"
-      );
-    }
+      _logger?.LogError("-------------------------------------------------------------------------------");
+      _logger?.LogError("Health check failed after {MaxRetries:D2} attempts. Application starting as not operational!", MAX_RETRIES);
+      _logger?.LogError("-------------------------------------------------------------------------------");
+    };
   }
 
   public async Task RunManuallyAsync(CancellationToken cancellationToken = default) {
