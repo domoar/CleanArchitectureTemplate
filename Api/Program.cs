@@ -18,11 +18,7 @@ Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
     .CreateLogger();
 
-builder.Host
-  .UseSerilog()
-  .ConfigureWebHostDefaults(webBuilder => {
-      webBuilder.UseStartup<Program>();
-    });
+builder.Host.UseSerilog();
 #endregion logging
 
 builder.Services.AddDefaultProblemDetails();
@@ -64,11 +60,11 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction()) {
 }
 
 
-app.MapHealthChecks(
-  "_health",
-  new HealthCheckOptions() {
-    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-  });
+//app.MapHealthChecks(
+//  "_health",
+//  new HealthCheckOptions() {
+//    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+//  });
 
 using (var banner = app.Services.GetRequiredService<Banner>()) {
   banner.LogBanner();
