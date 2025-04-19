@@ -5,7 +5,7 @@ namespace Infrastructure;
 
 public static class DependencyInjectionContainer {
   public static IServiceCollection AddInfrastructure(this IServiceCollection services) {
-    services.AddSingleton<HealthCheckResilienceService>();
+    //services.AddSingleton<HealthCheckResilienceService>();
     return services;
   }
 }
