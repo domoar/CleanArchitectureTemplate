@@ -60,15 +60,15 @@ jobs:
             echo "Generating diagram for $csfile → $puml_file"
             puml-gen "$csfile" "$puml_file"
           done
-
       - name: Commit generated diagrams
         if: github.ref == 'refs/heads/main'
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "chore: update PlantUML diagrams"
-          file_pattern: 'RWAnalyzer/extras/docu/plantuml/*.puml'
-          author_name: github-actions[bot]
-          author_email: github-actions[bot]@users.noreply.github.com
+         commit_message: "chore: update PlantUML diagrams"
+         file_pattern: '__extras__/docu/plantuml/*.puml'
+         commit_user_name: github-actions[bot]
+         commit_user_email: github-actions[bot]@users.noreply.github.com
+
       - name: Upload Test Results
         uses: actions/upload-artifact@v4
         with:
