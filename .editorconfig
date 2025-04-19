@@ -14,5 +14,8 @@ csharp_new_line_before_open_brace = none:suggestion
 csharp_new_line_after_open_brace = false:suggestion
 csharp_new_line_before_close_brace = false:suggestion
 insert_final_newline = true
-
 csharp_style_namespace_declarations = file_scoped:warning
+
+# Supressing primary constructors until they become good by design
+csharp_style_prefer_primary_constructors = false
+dotnet_diagnostic.IDE0290.severity = warning

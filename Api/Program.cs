@@ -4,10 +4,26 @@ using Domain;
 using Api.DependencyInjection;
 using Api.middleware;
 using Microsoft.AspNetCore.ResponseCompression;
+using Serilog;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using HealthChecks.UI.Client;
+using Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Logging.ClearProviders();
+#region logging
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+
+builder.Host
+  .UseSerilog()
+  .ConfigureWebHostDefaults(webBuilder => {
+      webBuilder.UseStartup<Program>();
+    });
+#endregion logging
 
 builder.Services.AddDefaultProblemDetails();
 builder.Services.AddDefaultApiVersioning();
@@ -26,6 +42,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSingleton<Banner>();
 var app = builder.Build();
 
 app.UseMiddleware<GlobalExceptionHandler>();
@@ -47,6 +64,14 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction()) {
 }
 
 
+app.MapHealthChecks(
+  "_health",
+  new HealthCheckOptions() {
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+  });
 
+using (var banner = app.Services.GetRequiredService<Banner>()) {
+  banner.LogBanner();
+}
 
 await app.RunAsync();

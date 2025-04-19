@@ -1,2 +1,2 @@
-﻿namespace Api; 
+﻿namespace Api;
 public interface IApiMarker;
