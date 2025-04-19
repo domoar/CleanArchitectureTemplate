@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build, Format, and Test
+    name: Build, Format, Test & Generate UML
     runs-on: ubuntu-latest
 
     steps:
@@ -26,8 +26,31 @@ jobs:
       - name: Restore .NET tools
         run: dotnet tool restore
 
+      - name: Debug .NET tools install
+        run: |
+          echo "HOME = $HOME"
+          echo "Contents of ~/.dotnet/tools:"
+          ls -la ~/.dotnet/tools
+          echo
+          echo "PATH before injection:"
+          echo $PATH
+          echo
+          echo "Trying to run puml-gen via full path:"
+          ~/.dotnet/tools/puml-gen --version || true
+
       - name: Add .NET tools to PATH
         run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Debug PATH after injection
+        run: |
+          echo "PATH after injection:"
+          echo $PATH
+          echo
+          echo "Which puml-gen?"
+          which puml-gen || true
+          echo
+          echo "Try puml-gen --version:"
+          puml-gen --version || true
 
       - name: Apply code formatting (.editorconfig)
         run: dotnet format CleanArchitectureTemplate.sln
