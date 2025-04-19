@@ -26,6 +26,9 @@ jobs:
       - name: Restore .NET tools
         run: dotnet tool restore
 
+      - name: Add .NET tools to PATH
+        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
       - name: Apply code formatting (.editorconfig)
         run: dotnet format CleanArchitectureTemplate.sln
 
@@ -40,9 +43,6 @@ jobs:
 
       - name: Run Integration Tests
         run: dotnet test IntegrationTests/IntegrationTests.csproj --no-build --configuration Release --logger "trx;LogFileName=integration.trx"
-
-      - name: Add .NET tools to PATH
-        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
       - name: Generate UML for Controllers, Services & Repositories
         shell: bash
