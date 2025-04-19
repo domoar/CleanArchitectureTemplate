@@ -1,0 +1,28 @@
+﻿name: Code Format Check
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  call-core-build:
+    uses: ./.github/workflows/build-core.yml
+
+  format-check:
+    name: Verify Formatting
+    runs-on: ubuntu-latest
+    needs: call-core-build
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore tools
+        run: dotnet tool restore
+
+      - name: Run formatter
+        run: dotnet format CleanArchitectureTemplate.sln --verify-no-changes
