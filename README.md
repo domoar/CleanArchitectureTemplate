@@ -1,6 +1,6 @@
 # CleanArchitectureTemplate
 
-[![Build and Test .NET Project](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yaml/badge.svg)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yaml)
+[![Build and Test .NET Project](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yaml?branch=main)
 
 ## Api
 
