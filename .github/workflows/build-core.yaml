@@ -1,7 +1,7 @@
 ﻿name: Core Build
 
 on:
-  workflow_call: # Makes this reusable
+  workflow_call:
 
 jobs:
   build:
