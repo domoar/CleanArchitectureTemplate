@@ -24,19 +24,19 @@ jobs:
            dotnet-version: '8.0.x'
  
        - name: Restore dependencies
-         run: dotnet restore CleanArchitectureTemplate.sln
+         run: dotnet restore __CleanArchitectureTemplate__.sln
  
        - name: Restore .NET local tools
          run: dotnet tool restore
  
        - name: Apply code formatting
-         run: dotnet format CleanArchitectureTemplate.sln
+         run: dotnet format __CleanArchitectureTemplate__.sln
  
        - name: Check code formatting
-         run: dotnet format CleanArchitectureTemplate.sln --verify-no-changes
+         run: dotnet format __CleanArchitectureTemplate__.sln --verify-no-changes
  
        - name: Build solution
-         run: dotnet build CleanArchitectureTemplate.sln --no-restore --configuration Release
+         run: dotnet build __CleanArchitectureTemplate__.sln --no-restore --configuration Release
  
        - name: Run Unit Tests
          run: dotnet test tests/UnitTests/UnitTests.csproj --no-build --configuration Release --logger "trx;LogFileName=unit.trx"

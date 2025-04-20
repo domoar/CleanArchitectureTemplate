@@ -25,3 +25,19 @@ Example to run individual test parts:
 ```bash
 dotnet test --filter "category=application"
 ```
+
+# Usage
+
+Want the full parametric experience?
+
+Use
+
+```bash
+dotnet new --install https://github.com/domoar/CleanArchitectureTemplate
+```
+
+then customize via 
+
+```bash
+dotnet new cleanarch --SolutionName "MyApp"
+```
