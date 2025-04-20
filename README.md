@@ -32,14 +32,12 @@ Want the full parametric experience?
 
 Use
 
-1. Clone the repository
-
 ```bash
 git clone https://github.com/domoar/CleanArchitectureTemplate.git
 cd CleanArchitectureTemplate
 ```
 
-then customize via 
+to clone the repository then customize with 
 
 ```bash
 dotnet new cleanarch --name MyApp --SolutionName "MyApp"
