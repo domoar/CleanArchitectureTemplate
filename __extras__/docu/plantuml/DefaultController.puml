@@ -8,9 +8,5 @@ class DefaultController {
     + <<async>> PatchSomething(id:int, patchDoc:JsonPatchDocument<SomethingDto>, cancellationToken:CancellationToken) : Task<IActionResult>
     + <<async>> DeleteSomething(id:int, cancellationToken:CancellationToken) : Task<IActionResult>
 }
-class SomethingDto {
-    + Id : int <<get>> <<set>>
-    + Value : int <<get>> <<set>>
-}
 ControllerBase <|-- DefaultController
 @enduml
