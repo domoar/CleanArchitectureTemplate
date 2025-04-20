@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.JsonPatch;
+﻿using Api.dtos;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -79,9 +80,4 @@ public class DefaultController : ControllerBase {
 
     return NoContent();
   }
-}
-
-public class SomethingDto {
-  public int Id { get; set; }
-  public int Value { get; set; }
 }
