@@ -3,7 +3,7 @@ using System.Net;
 
 namespace IntegrationTests;
 
-public class BaseIntegrationTest : IClassFixture<CleanArchitectureApiFactory> {
+public class BaseIntegrationTest : IClassFixture<CleanArchitectureTemplateApiFactory> {
 
   private readonly HttpClient _client;
 
@@ -44,7 +44,7 @@ public class BaseIntegrationTest : IClassFixture<CleanArchitectureApiFactory> {
     response.StatusCode.Should().Be(HttpStatusCode.NotFound);
   }
 
-  public BaseIntegrationTest(CleanArchitectureApiFactory apiFactory) {
+  public BaseIntegrationTest(CleanArchitectureTemplateApiFactory apiFactory) {
     _client = apiFactory.CreateClient();
   }
 }

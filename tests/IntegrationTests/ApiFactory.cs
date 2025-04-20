@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace IntegrationTests;
-public class CleanArchitectureApiFactory : WebApplicationFactory<IApiMarker>, IAsyncLifetime {
+public class CleanArchitectureTemplateApiFactory : WebApplicationFactory<IApiMarker>, IAsyncLifetime {
   public async Task InitializeAsync() {
     await Task.Delay(1);
     //TODO add test fixture
@@ -19,5 +19,5 @@ public class CleanArchitectureApiFactory : WebApplicationFactory<IApiMarker>, IA
   }
 
   [CollectionDefinition("ApiFactory context collection")]
-  public class SharedApiFactoryFixtureCollection : ICollectionFixture<CleanArchitectureApiFactory> { }
+  public class SharedApiFactoryFixtureCollection : ICollectionFixture<CleanArchitectureTemplateApiFactory> { }
 }

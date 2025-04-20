@@ -1,6 +1,6 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "Your Name or Org",
+  "author": "domoar",
   "classifications": [ "Web", "Clean Architecture", "API" ],
   "identity": "CleanArchitecture.Template",
   "name": "Clean Architecture Template",
@@ -11,8 +11,8 @@
     "SolutionName": {
       "type": "parameter",
       "datatype": "string",
-      "replaces": "CleanArchitectureTemplate.sln",
-      "defaultValue": "MySolution"
+      "replaces": "CleanArchitectureTemplate",
+      "defaultValue": "MyApp"
     }
   },
   "tags": {
