@@ -1,1 +1,1 @@
-﻿namespace Domain.entity;
+﻿namespace Domain.Entity;

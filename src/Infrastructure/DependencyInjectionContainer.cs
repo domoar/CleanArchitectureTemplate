@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Infrastructure.context;
+using Infrastructure.Context;
 using System;
 using Microsoft.Extensions.Logging;
 

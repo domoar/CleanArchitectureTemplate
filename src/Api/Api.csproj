@@ -43,4 +43,9 @@
 		<ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="response\" />
+	  <Folder Include="request\" />
+	</ItemGroup>
+
 </Project>

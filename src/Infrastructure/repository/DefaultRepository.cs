@@ -1,24 +1,25 @@
-﻿using Infrastructure.context;
+﻿using Infrastructure.Context;
+using Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Infrastructure.repository;
-public class DefaultRepository {
+namespace Infrastructure.Repository;
+
+public class DefaultRepository
+{
   private readonly ILogger<DefaultRepository> _logger;
   private readonly IDbContextFactory<DefaultContext> _factory;
 
-  public DefaultRepository(ILogger<DefaultRepository> logger,  IDbContextFactory<DefaultContext> factory) {
+  public DefaultRepository(ILogger<DefaultRepository> logger, IDbContextFactory<DefaultContext> factory)
+  {
     _logger = logger;
     _factory = factory;
   }
 
-  public async Task<object[]> FetchSometing(int something, CancellationToken cancellationToken) {
-    var ctx = await _factory.CreateDbContextAsync(cancellationToken);
+  public async Task<object[]> FindSomething(CancellationToken ct)
+  {
+    var ctx = await _factory.CreateDbContextAsync(ct);
+    _logger.LogFoo();
     return [];
   }
 }

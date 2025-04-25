@@ -1,12 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Infrastructure.context;
+namespace Infrastructure.Context;
 public class DefaultContext : DbContext {
   private readonly ILogger<DefaultContext> _logger;
 

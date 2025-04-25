@@ -1,0 +1,87 @@
+﻿name: CI - Build, Format, Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  format:
+    name: Code Format Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - run: dotnet tool restore --verbosity diagnostic
+
+      - name: Apply code formatting
+        run: dotnet format __CleanArchitectureTemplate__.sln --verbosity diagnostic
+
+      - name: Check code formatting
+        run: dotnet format __CleanArchitectureTemplate__.sln --verify-no-changes --verbosity diagnostic
+
+  build:
+    name: Build Solution
+    runs-on: ubuntu-latest
+    needs: format
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore __CleanArchitectureTemplate__.sln
+
+      - name: Build solution
+        run: dotnet build __CleanArchitectureTemplate__.sln --no-restore --configuration Release --verbosity diagnostic
+
+      - name: Upload build outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            **/bin/Release
+            **/obj/Release
+
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+      - run: dotnet test tests/UnitTests/UnitTests.csproj --no-build --configuration Release --logger "trx;LogFileName=unit.trx" --verbosity diagnostic
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-results
+          path: '**/TestResults/*.trx'
+
+  integration-tests:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+      - run: dotnet test tests/IntegrationTests/IntegrationTests.csproj --no-build --configuration Release --logger "trx;LogFileName=integration.trx" --verbosity diagnostic
+      - uses: actions/upload-artifact@v4
+        with:
+          name: integration-test-results
+          path: '**/TestResults/*.trx'
