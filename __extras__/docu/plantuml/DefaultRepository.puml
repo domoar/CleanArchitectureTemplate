@@ -1,8 +1,0 @@
-@startuml
-class DefaultRepository {
-    - <<readonly>> _logger : ILogger<DefaultRepository>
-    - <<readonly>> _factory : IDbContextFactory<DefaultContext>
-    + DefaultRepository(logger:ILogger<DefaultRepository>, factory:IDbContextFactory<DefaultContext>)
-    + <<async>> FindSomething(ct:CancellationToken) : Task<object[]>
-}
-@enduml

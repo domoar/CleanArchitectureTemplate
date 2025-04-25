@@ -1,8 +1,0 @@
-@startuml
-class DefaultService {
-    - <<readonly>> _logger : ILogger<DefaultService>
-    - <<readonly>> _repository : DefaultRepository
-    + DefaultService(logger:ILogger<DefaultService>, repository:DefaultRepository)
-    + <<async>> FetchSomething(ct:CancellationToken) : Task<object[]>
-}
-@enduml
