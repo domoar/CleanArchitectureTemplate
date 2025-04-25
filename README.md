@@ -1,6 +1,6 @@
 # CleanArchitectureTemplate
 
-[![Build and Test .NET Project](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yaml?branch=main)
+[![CI - Build, Format, Test](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yml/badge.svg)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yml) [![Generate documentation](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/docu.yml/badge.svg)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/docu.yml)
 
 
 ## ToC
@@ -23,9 +23,9 @@ dotnet watch run --launch-profile "https"
 There is a Dockerfile and a docker-compose.yml in the root directory.
 The compose file starts five services:
 
-- api – ASP.NET Core application.
-- seq – Centralised structured log server.
-- jaeger – Distributed tracing system.
+- api â€“ ASP.NETÂ Core application.
+- seq â€“ Centralised structured log server.
+- jaeger â€“ Distributed tracing system.
 
 Start / Shutdown these services with
 
