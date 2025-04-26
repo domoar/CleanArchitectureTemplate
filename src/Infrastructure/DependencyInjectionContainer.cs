@@ -1,9 +1,9 @@
-﻿using Infrastructure.services;
-using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using Infrastructure.Context;
+using Infrastructure.services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Infrastructure.Context;
-using System;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace Infrastructure;

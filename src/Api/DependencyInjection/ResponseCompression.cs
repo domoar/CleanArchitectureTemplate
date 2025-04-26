@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.ResponseCompression;
-using System.IO.Compression;
+﻿using System.IO.Compression;
+using Microsoft.AspNetCore.ResponseCompression;
 
 namespace Api.DependencyInjection;
 

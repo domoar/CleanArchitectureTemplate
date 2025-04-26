@@ -1,10 +1,10 @@
-﻿using Api;
-using Microsoft.AspNetCore.Mvc.Testing;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Api;
+using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace IntegrationTests;
 public class CleanArchitectureTemplateApiFactory : WebApplicationFactory<IApiMarker>, IAsyncLifetime {

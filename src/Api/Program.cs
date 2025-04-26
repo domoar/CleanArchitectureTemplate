@@ -1,14 +1,14 @@
-﻿using Application;
-using Infrastructure;
-using Domain;
+﻿using Api;
 using Api.DependencyInjection;
 using Api.middleware;
+using Application;
+using Domain;
+using HealthChecks.UI.Client;
+using Infrastructure;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
 using Serilog;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using HealthChecks.UI.Client;
-using Api;
 
 var builder = WebApplication.CreateBuilder(args);
 

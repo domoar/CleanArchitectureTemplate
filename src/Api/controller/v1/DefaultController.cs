@@ -1,8 +1,8 @@
-﻿using Api.extensions;
+﻿using System.Text.Json;
+using Api.extensions;
 using Application.Service;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
 
 namespace Api.controller.v1;
 
@@ -14,10 +14,9 @@ public class DefaultController : ControllerBase {
   private readonly ILogger<DefaultController> _logger;
   private readonly DefaultService _service;
 
-  public DefaultController(ILogger<DefaultController> logger, DefaultService service) 
-  {
-      _logger = logger;
-      _service = service;
+  public DefaultController(ILogger<DefaultController> logger, DefaultService service) {
+    _logger = logger;
+    _service = service;
   }
 
   [HttpGet]
@@ -28,7 +27,7 @@ public class DefaultController : ControllerBase {
   }
 
   [HttpPost]
-  public async Task<IActionResult> CreateSomething( CancellationToken cancellationToken) {
+  public async Task<IActionResult> CreateSomething(CancellationToken cancellationToken) {
     await Task.Delay(1);
     _logger.LogFoo();
     return Ok();
