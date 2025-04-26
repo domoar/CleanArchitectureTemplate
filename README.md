@@ -2,17 +2,19 @@
 
 [![CI - Build, Format, Test](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yml/badge.svg)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yml) [![Generate documentation](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/docu.yml/badge.svg)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/docu.yml)
 
-
 ## ToC
 
  1. [Api](#api)
  2. [Docker](#dockerfile-and-dockercompose-for-the-project)
  3. [Testing](#testing)
  4. [Usage](#usage)
+ 5. [Architecture](#architecture)
+ 6. [CI/CD](#continuous-integration-und-continuous-deployment-cicd)
+ 7. [Tools](#tools)
 
 ## Api
 
-To debug or run the api locally use 
+To debug or run the api locally use
 
 ```bash
 dotnet watch run --launch-profile "https"
@@ -106,3 +108,17 @@ dotnet new cleanarch --name MyApp --SolutionName "MyApp"
 ```
 
 This repo will be redone once github templates allows variable names in templates. [Discussion](https://github.com/orgs/community/discussions/5336)
+
+## Architecture
+
+## Continuous Integration und Continuous Deployment (CI/CD)
+
+`.github/workflows`
+
+## Tools
+
+Using the .editorconfig file all projects can be formatted using
+
+```bash
+cd dotnet format .\__Northwind__.sln --verbosity diagnostic
+```

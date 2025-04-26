@@ -14,7 +14,8 @@ public class DefaultController : ControllerBase {
   private readonly ILogger<DefaultController> _logger;
   private readonly DefaultService _service;
 
-  public DefaultController(ILogger<DefaultController> logger, DefaultService service) {
+  public DefaultController(ILogger<DefaultController> logger, DefaultService service) 
+  {
       _logger = logger;
       _service = service;
   }

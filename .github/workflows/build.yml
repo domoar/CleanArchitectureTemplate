@@ -1,5 +1,8 @@
 ﻿name: CI - Build, Format, Test
 
+permissions:
+   contents: write
+
 on:
   push:
     branches: [ main, develop ]
@@ -7,7 +10,6 @@ on:
     branches: [ main, develop ]
   schedule:
     - cron: '0 0 * * *'
-
 jobs:
   format:
     name: Code Format Check
@@ -22,11 +24,19 @@ jobs:
       - run: dotnet tool restore --verbosity diagnostic
 
       - name: Apply code formatting
-        run: dotnet format __CleanArchitectureTemplate__.sln --verbosity diagnostic
+        run: dotnet format __Northwind__.sln --verbosity diagnostic
 
       - name: Check code formatting
-        run: dotnet format __CleanArchitectureTemplate__.sln --verify-no-changes --verbosity diagnostic
+        run: dotnet format __Northwind__.sln --verify-no-changes --verbosity diagnostic
 
+      - name: Commit formatted code
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "ci: apply dotnet format"
+          commit_user_name: github-actions
+          commit_user_email: github-actions[bot]@users.noreply.github.com
+          push_options: '--force-with-lease'
+          
   build:
     name: Build Solution
     runs-on: ubuntu-latest
@@ -39,10 +49,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore __CleanArchitectureTemplate__.sln
+        run: dotnet restore __Northwind__.sln
 
       - name: Build solution
-        run: dotnet build __CleanArchitectureTemplate__.sln --no-restore --configuration Release --verbosity diagnostic
+        run: dotnet build __Northwind__.sln --no-restore --configuration Release --verbosity diagnostic
 
       - name: Upload build outputs
         uses: actions/upload-artifact@v4
