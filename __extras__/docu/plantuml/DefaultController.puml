@@ -1,0 +1,13 @@
+@startuml
+class DefaultController {
+    - <<readonly>> _logger : ILogger<DefaultController>
+    - <<readonly>> _service : DefaultService
+    + DefaultController(logger:ILogger<DefaultController>, service:DefaultService)
+    + <<async>> GetSomething(cancellationToken:CancellationToken) : Task<IActionResult>
+    + <<async>> CreateSomething(cancellationToken:CancellationToken) : Task<IActionResult>
+    + <<async>> UpdateSomething(cancellationToken:CancellationToken) : Task<IActionResult>
+    + <<async>> PatchSomething(id:Guid, cancellationToken:CancellationToken) : Task<IActionResult>
+    + <<async>> DeleteSomething(id:Guid, cancellationToken:CancellationToken) : Task<IActionResult>
+}
+ControllerBase <|-- DefaultController
+@enduml
