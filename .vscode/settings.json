@@ -1,13 +1,47 @@
 {
+    // ───── General editor behaviour ─────
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "[csharp]": {
+      "editor.formatOnSave": true,               // run C# formatter on every save
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit",          // sort + remove usings
+        "source.fixAll": "always"                // run Roslyn fix-alls
+      },
+      "editor.tabSize": 4,
+      "editor.insertSpaces": true
+    },
+    // ───── House-keeping ─────
     "files.exclude": {
         "**/bin": true,
         "**/obj": true,
         "build.**": true,
-        ".vs": true
+        ".vs": true,
+        ".sln": true
     },
+
+    // ───── Git conveniences ─────
+    "git.autofetch": true,
+    "git.confirmSync": false,
+
+    // ───── Environment tweaks ─────
+    "terminal.integrated.env.linux": {
+      "DOTNET_CLI_TELEMETRY_OPTOUT": "1"
+    },
+
     "files.encoding": "utf8bom",
     "dbmlERDPreviewer.preferredTheme": "dark",
 
+    // ── Explorer file nesting ─────
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
+      "appsettings.json": "${basename}.*.${extname}",
+      "docker-compose.yml"        : "${basename}.override.${extname}",
+      "docker-compose.dev.yml"    : "${basename}.override.${extname}, ${basename}.*.${extname}",
+      "docker-compose.prod.yml"   : "${basename}.override.${extname}, ${basename}.*.${extname}"
+    },
+
+    // ───── TODO Tree Extension ─────
     "todo-tree.general.tags": [
     "TODO",
     "FIXME",
