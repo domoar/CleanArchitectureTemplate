@@ -2,10 +2,10 @@
     // ───── General editor behaviour ─────
     "editor.defaultFormatter": "ms-dotnettools.csharp",
     "[csharp]": {
-      "editor.formatOnSave": true,               // run C# formatter on every save
+      "editor.formatOnSave": true,
       "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit",          // sort + remove usings
-        "source.fixAll": "always"                // run Roslyn fix-alls
+        "source.organizeImports": "explicit",
+        "source.fixAll": "always"
       },
       "editor.tabSize": 4,
       "editor.insertSpaces": true
