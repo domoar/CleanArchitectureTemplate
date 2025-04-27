@@ -2,7 +2,7 @@
 
 [*.cs]
 indent_style = space
-tab_width = 4
+tab_width = 2
 indent_size = 2
 max_line_length = 120
 dotnet_diagnostic.IDE0059.severity = warning
@@ -22,3 +22,12 @@ dotnet_diagnostic.IDE0290.severity = warning
 
 # Order using statements
 dotnet_sort_system_directives_first = true
+
+[*.yml]
+indent_style = space
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+indent_style = space
+indent_size = 2

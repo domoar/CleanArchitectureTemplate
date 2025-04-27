@@ -16,7 +16,7 @@ public sealed partial class Banner : IDisposable {
     _logger = logger;
   }
 
-  private readonly static string USERNAME = Environment.UserName;
+  private static readonly string USERNAME = Environment.UserName;
   private static string? DATE => DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
   private static string? DOTNETVERSION => Environment.Version.ToString();
   private static string? DEVICENAME => Environment.MachineName;
