@@ -121,7 +121,7 @@ This repo will be redone once github templates allows variable names in template
 Using the .editorconfig file all projects can be formatted using
 
 ```bash
-cd dotnet format .\__Northwind__.sln --verbosity diagnostic
+dotnet format .\__Northwind__.sln --verbosity diagnostic
 ```
 
 ## Git Hooks
