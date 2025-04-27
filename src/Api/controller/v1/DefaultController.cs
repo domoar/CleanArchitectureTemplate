@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using Api.extensions;
+using Api.Extensions;
 using Application.Service;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;

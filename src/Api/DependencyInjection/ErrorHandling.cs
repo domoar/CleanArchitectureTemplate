@@ -1,4 +1,4 @@
-﻿using Api.middleware;
+﻿using Api.Middleware;
 using Microsoft.AspNetCore.Http.Features;
 
 namespace Api.DependencyInjection;
@@ -19,13 +19,15 @@ public static class ProblemDetailsServiceCollectionExtensions {
             .Features
             .Get<IHttpActivityFeature>()?
             .Activity;
+
         context.ProblemDetails.Extensions.TryAdd(
             "traceId",
             activity?.Id);
       };
     });
 
-    services.AddExceptionHandler<ProblemExceptionHandler>();
+    services.AddExceptionHandler<GlobalExceptionHandler>();
+    services.AddProblemDetails();
 
     return services;
   }
