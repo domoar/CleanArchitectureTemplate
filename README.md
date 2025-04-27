@@ -11,6 +11,7 @@
  5. [Architecture](#architecture)
  6. [CI/CD](#continuous-integration-und-continuous-deployment-cicd)
  7. [Tools](#tools)
+ 8. [GitHooks](#githooks)
 
 ## Api
 
@@ -122,3 +123,14 @@ Using the .editorconfig file all projects can be formatted using
 ```bash
 cd dotnet format .\__Northwind__.sln --verbosity diagnostic
 ```
+
+## GitHooks
+
+This repo ships with a pre-commit hook in **`.githooks/pre-commit`**.  
+Enable it once per clone by running
+
+```bash
+git config core.hooksPath .githooks
+```
+
+after cloning
