@@ -124,7 +124,7 @@ Using the .editorconfig file all projects can be formatted using
 cd dotnet format .\__Northwind__.sln --verbosity diagnostic
 ```
 
-## GitHooks
+## Git Hooks
 
 This repo ships with a pre-commit hook in **`.githooks/pre-commit`**.  
 Enable it once per clone by running
@@ -133,4 +133,5 @@ Enable it once per clone by running
 git config core.hooksPath .githooks
 ```
 
-after cloning
+after cloning.
+[Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
