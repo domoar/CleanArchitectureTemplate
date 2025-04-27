@@ -1,6 +1,6 @@
 ﻿using Api;
 using Api.DependencyInjection;
-using Api.middleware;
+using Api.Middleware;
 using Application;
 using Domain;
 using HealthChecks.UI.Client;
@@ -30,6 +30,9 @@ builder.Services.AddDomain();
 builder.Services.AddInfrastructure();
 builder.Services.AddApplication();
 
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -40,8 +43,6 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddSingleton<Banner>();
 var app = builder.Build();
-
-app.UseMiddleware<GlobalExceptionHandler>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
@@ -57,6 +58,13 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction()) {
     options.DefaultModelRendering(Swashbuckle.AspNetCore.SwaggerUI.ModelRendering.Model);
     options.ConfigObject.AdditionalItems["syntaxHighlight"] = false;
   });
+}
+
+if (app.Environment.IsDevelopment() || app.Environment.IsStaging()) {
+  app.UseDeveloperExceptionPage();
+}
+else {
+  app.UseExceptionHandler();
 }
 
 
