@@ -102,7 +102,7 @@ The testsuite contains a postman collection that can be used via the postman app
 
 ### Testsuite client
 
-The testsuite also contains a .http file with environments pre configured. In `.extras/client`.
+The testsuite also contains a .http file with environments pre configured. In `.extras/client` you can either use the vscode extension [Rest-Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or the built in feature from VS2022.
 
 ## Usage
 
