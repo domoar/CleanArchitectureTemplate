@@ -11,7 +11,7 @@
  5. [Architecture](#architecture)
  6. [CI/CD](#continuous-integration-und-continuous-deployment-cicd)
  7. [Tools](#tools)
- 8. [GitHooks](#githooks)
+ 8. [Git Hooks](#git-hooks)
 
 ## Api
 
@@ -23,8 +23,13 @@ dotnet watch run --launch-profile "https"
 
 ## DockerFile and DockerCompose for the project
 
-There is a Dockerfile and a docker-compose.yml in the root directory.
-The compose file starts five services:
+There is a Dockerfile and a docker-compose.yml in the root directory. The DockerFile can be build with:
+
+```bash
+docker build .
+```
+
+The compose file starts three services:
 
 - api – ASP.NET Core application.
 - seq – Centralised structured log server.
@@ -91,9 +96,19 @@ Example to run individual test parts:
 dotnet test --filter "category=application"
 ```
 
+### Postman
+
+The testsuite contains a postman collection that can be used via the postman application or its vscode extension. In `.extras/postman`.
+
+### Testsuite client
+
+The testsuite also contains a .http file with environments pre configured. In `.extras/client`.
+
 ## Usage
 
 You can either use the github template and refactor or if you want the the full parametric experience?
+
+Consider the '.template.config/template.json' file.
 
 Use
 
@@ -114,7 +129,7 @@ This repo will be redone once github templates allows variable names in template
 
 ## Continuous Integration und Continuous Deployment (CI/CD)
 
-`.github/workflows`
+CI/CD is handled with Github Actions see the workflows in `.github/workflows`.
 
 ## Tools
 
@@ -126,8 +141,7 @@ dotnet format .\__Northwind__.sln --verbosity diagnostic
 
 ## Git Hooks
 
-This repo ships with a pre-commit hook in **`.githooks/pre-commit`**.  
-Enable it once per clone by running
+This repo ships with a pre-commit hook in **`.githooks/pre-commit`**. Enable it once per clone by running
 
 ```bash
 git config core.hooksPath .githooks
@@ -135,3 +149,5 @@ git config core.hooksPath .githooks
 
 after cloning.
 [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
+
+The pre-commit checks for formatting/ linting and also if the solution compiles and can be build without errors.

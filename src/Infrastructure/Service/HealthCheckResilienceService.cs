@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Infrastructure.services;
+namespace Infrastructure.Service;
 
 public class HealthCheckResilienceService : IHostedService {
   private readonly ILogger<HealthCheckResilienceService>? _logger;
@@ -64,7 +64,8 @@ public class HealthCheckResilienceService : IHostedService {
       _logger?.LogError("-------------------------------------------------------------------------------");
       _logger?.LogError("Health check failed after {MaxRetries:D2} attempts. Application starting as not operational!", MAX_RETRIES);
       _logger?.LogError("-------------------------------------------------------------------------------");
-    };
+    }
+    ;
   }
 
   public async Task RunManuallyAsync(CancellationToken cancellationToken = default) {

@@ -1,4 +1,4 @@
-﻿namespace Api.Extensions;
+﻿namespace Api.Extension;
 
 public static partial class LogTemplates {
   [LoggerMessage(EventId = 101, Level = LogLevel.Information, Message = "", SkipEnabledCheck = true)]

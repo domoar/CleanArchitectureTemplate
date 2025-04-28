@@ -1,0 +1,7 @@
+@hostname=localhost
+@safe_port=7104
+@unsafe_port=5265
+@safe_host={{hostname}}:{{safe_port}}
+@unsafe_host={{hostname}}:{{unsafe_port}}
+
+GET https://{{safe_host}}/api/v1/
