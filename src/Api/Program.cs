@@ -1,6 +1,6 @@
 ﻿using Api;
-using Api.ServiceExtension;
 using Api.Middleware;
+using Api.ServiceExtension;
 using Application;
 using Domain;
 using HealthChecks.UI.Client;
