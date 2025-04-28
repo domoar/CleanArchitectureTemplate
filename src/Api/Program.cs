@@ -1,5 +1,5 @@
 ﻿using Api;
-using Api.DependencyInjection;
+using Api.ServiceExtension;
 using Api.Middleware;
 using Application;
 using Domain;

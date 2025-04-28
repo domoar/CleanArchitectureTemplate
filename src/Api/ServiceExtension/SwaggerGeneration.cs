@@ -1,6 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 
-namespace Api.DependencyInjection;
+namespace Api.ServiceExtension;
 
 public static class SwaggerGeneration {
   public static IServiceCollection AddDefaultSwaggerGeneration(this IServiceCollection services) {
