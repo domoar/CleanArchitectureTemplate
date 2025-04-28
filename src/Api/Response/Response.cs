@@ -1,1 +1,1 @@
-namespace Api.Response;
+﻿namespace Api.Response;
