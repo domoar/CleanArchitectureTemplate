@@ -1,6 +1,6 @@
 ﻿using System;
 using Infrastructure.Context;
-using Infrastructure.services;
+using Infrastructure.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;

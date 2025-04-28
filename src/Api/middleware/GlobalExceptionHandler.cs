@@ -29,7 +29,7 @@ public sealed class GlobalExceptionHandler : IExceptionHandler {
 
     httpContext.Response.StatusCode = pd.Status!.Value;
 
-    var handled = await _problemDetailsService.TryWriteAsync(
+    bool handled = await _problemDetailsService.TryWriteAsync(
         new ProblemDetailsContext {
           HttpContext = httpContext,
           ProblemDetails = pd
