@@ -96,6 +96,10 @@ Example to run individual test parts:
 dotnet test --filter "category=application"
 ```
 
+### Code Coverage
+
+[View Full Coverage Report](https://domoar.github.io/CleanArchitectureTemplate/coverage/index.html)
+
 ### Postman
 
 The testsuite contains a postman collection that can be used via the postman application or its vscode extension. In `.extras/postman`.

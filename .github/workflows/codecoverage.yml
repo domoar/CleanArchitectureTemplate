@@ -1,0 +1,53 @@
+﻿name: Generate and Publish Code Coverage
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+on:
+  workflow_run:
+    workflows: ["CI - Build, Format, Test"]
+    types:
+      - completed
+
+jobs:
+  generate-coverage:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore tools
+        run: dotnet tool restore
+
+      - name: Run Unit Tests with Coverage
+        run: |
+          dotnet test ./tests/UnitTests/UnitTests.csproj --collect:"XPlat Code Coverage" --results-directory ./coverage-results/unittests
+
+      - name: Run Integration Tests with Coverage
+        run: |
+          dotnet test ./tests/IntegrationTests/IntegrationTests.csproj --collect:"XPlat Code Coverage" --results-directory ./coverage-results/integrationtests
+
+      - name: Merge Coverage Reports
+        run: |
+          dotnet reportgenerator \
+            "-reports:coverage-results/**/coverage.cobertura.xml" \
+            "-targetdir:coverage-report" \
+            "-reporttypes:Html"
+
+      - name: Add .nojekyll to allow all files
+        run: touch coverage-report/.nojekyll
+
+      - name: Upload Coverage Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./coverage-report
+          destination_dir: coverage
+          keep_files: true
