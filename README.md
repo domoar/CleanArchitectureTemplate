@@ -1,6 +1,6 @@
 # CleanArchitectureTemplate
 
-[![CI - Build, Format, Test](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yml/badge.svg)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yml) [![Generate documentation](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/documentation.yml/badge.svg)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/documentation.yml)
+[![CI - Build, Format, Test](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yml/badge.svg)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/build.yml) [![Generate documentation](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/documentation.yml/badge.svg)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/documentation.yml) [![Generate and Publish Code Coverage](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/codecoverage.yml/badge.svg)](https://github.com/domoar/CleanArchitectureTemplate/actions/workflows/codecoverage.yml)
 
 ## ToC
 
