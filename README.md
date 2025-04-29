@@ -133,7 +133,7 @@ This repo will be redone once github templates allows variable names in template
 
 ## Continuous Integration und Continuous Deployment (CI/CD)
 
-CI/CD is handled with Github Actions see the workflows in `.github/workflows`.
+CI/CD is handled with Github Actions see the workflows in **`.github/workflows`**.
 
 ## Tools
 
